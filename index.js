@@ -1,5 +1,4 @@
 const express = require('express')
-const algo = require('./algo')
 
 const port = 5000
 
@@ -40,18 +39,10 @@ app.post(route, (req, res) => {
     return est.dni == estudiante.dni
   })
 
-  // verificar duplicado de registro  
+
   
   if (!existe  ) {
-    // grabado = estudiantes.save(estudiante)
-    // if grabado...
-    
-    // try {
-    //   baseDeDatos.save(estudiante)
-    // } catch (ErrorDuplicacion) {
-    //   res.status(409)
-    //   res.send()
-    // }
+
     estudiantes.push(estudiante)
     res.status(200)
     res.json(estudiante)
@@ -156,7 +147,6 @@ app.get(`${route}/edad/:rango`, (req, res) => { // rango: muestra hasta la edad 
   
 })
 
-app.delete('/algo', algo.delete)
 
 app.listen(port, () => {
   console.log("Escuchando")
